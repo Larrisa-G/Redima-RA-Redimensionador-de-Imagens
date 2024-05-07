@@ -15,13 +15,13 @@ A função 'escalar_imagem' recebe uma imagem e um fator de escala
   
 A função 'escalar_quadrante' recebe como parametros as coordenadas e dimenções do quadrante inicial (que é a imagem toda)
 
-O caso base da recurção 
+Caso base 
 -
   Se dá quando a largura ou altura do quadrante for menor ou igual a zero
   - pega um pixel da imagem original 'imagem.getpixel((x,y))'
   - altera o pixel da nova imagem 'nova_imagem.putpixel((int(x * escala), int(y * escala)), cor)'
 
-O caso recursivo 
+Caso recursivo 
 -
   - calcula as coordenadas do ponto médio do quadrante
   - divide o quadrante em paartes menores (repartindo de 4 em 4) até que atinjam o caso base (quadrantes de um único pixel).
