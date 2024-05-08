@@ -19,8 +19,8 @@ button = tk.Button(root, text= 'Redimensionar', bg=cor2, font=('Areal', 15), fg=
 
 # Usando pack() para posicionar os widgets com espaçamento
 label1.pack(padx=10, pady=40)
-entry.pack(padx=10, pady=10)
-button1.pack(padx=10, pady=10)
+button1.pack(padx=10, pady=10, side=tk.LEFT)
+entry.pack(padx=10, pady=10, side=tk.RIGHT)
 button.pack(padx=10, pady=10)
 
 root.mainloop()
