@@ -60,7 +60,7 @@ def initial(root):
 
 def main():
     root = tk.Tk()
-    root.title("Recurção aninhada")
+    root.title("RedimaRA - Redimensionador de Imagens")
     root.geometry("600x400")
     root.configure(bg=cor2)
 
