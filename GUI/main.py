@@ -1,10 +1,12 @@
 from PIL import Image
+from viole_rcng import gencode
 
-def escalar_imagem (imagem, escala):  
-    largura, altura = imagem.size
-    nova_largura = int(largura * escala)
-    nova_altura = int(altura * escala)
-    nova_imagem = Image.new("RGB", (nova_largura, nova_altura)) 
+def escalar_imagem (imagem, largura, altura, escala):  
+    imagem = Image.open(imagem)
+    escala = float(escala)
+    nova_largura = (largura * escala)
+    nova_altura = (altura * escala)
+    nova_imagem = Image.new("RGB", (int(nova_largura), int(nova_altura))) 
     
     def escalar_quadrante(x, y, w, h) : #coordenadas, largura e altura do quadrante
         if w <= 1 or h <= 1 : 
@@ -20,8 +22,10 @@ def escalar_imagem (imagem, escala):
             escalar_quadrante(pt_medio_x, pt_medio_y, x + w -pt_medio_x, y + h - pt_medio_y)
    
     escalar_quadrante(0, 0, largura, altura)
+    nova_imagem.show()
+    '''nova_imagem.save(f'{gencode(name='Redima_RA', x=1)}.png')'''
     return nova_imagem
 
-imagem = Image.open(".\leao_cinza.jpg")
+'''imagem = Image.open(".\leao_cinza.jpg")
 nova_imagem = escalar_imagem(imagem, 1)
-nova_imagem.show()
+nova_imagem.show()'''

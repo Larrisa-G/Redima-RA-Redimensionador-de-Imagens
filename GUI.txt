@@ -1,27 +1,14 @@
 from tkinter import *
 from tkinter import messagebox
 import tkinter as tk
-from PIL import Image
+import PIL
 import easygui as eg
 from main import escalar_imagem
 
-def selecionar_imagem () :
-    global caminho_imagem
-    global largura
-    global altura
-
-    caminho_imagem = eg.fileopenbox()
-
-    if caminho_imagem:
-        imagem = Image.open(caminho_imagem)
-        largura, altura = imagem.size
-        imagem.close()
-        print(caminho_imagem)
-        print(largura)
-        print(altura)
-        return caminho_imagem, int(largura), int(altura)
-    else:
-        return None, None, None
+def abrir_imagem():
+    global path
+    path=eg.fileopenbox()
+    print(path)
 
 def remove_placeholder(event):
     if input.get() == 'Insira a escala':
@@ -50,12 +37,12 @@ frame_right = tk.Frame(root)
 frame_left = tk.Frame(root)
 
 label = Label(root, text='Redimencionador de imagens', bg=cor2, fg=cor1, font=('Areal', 20))
-button1 = Button(root, text='Escolha uma imagem',bg=cor0, font= ('Areal', 14), fg=cor2, command=selecionar_imagem)
+button1 = Button(root, text='Escolha uma imagem',bg=cor0, font= ('Areal', 14), fg=cor2, command=abrir_imagem)
 input = Entry(root, font= ('Areal', 14), fg=cor2)
 input.insert(0, 'Insira a escala')
 input.bind('<FocusIn>', remove_placeholder)
 input.bind('<FocusOut>', devolve_placeholder)
-button = Button(root, text= 'Redimensionar', bg=cor2, font=('Areal', 13), fg=cor1, bd=5, command=lambda:escalar_imagem(caminho_imagem, largura, altura, input.get()))
+button = Button(root, text= 'Redimensionar', bg=cor2, font=('Areal', 13), fg=cor1, bd=5, command=lambda:escalar_imagem(path, input.get()))
 
 #mostra na tela
 frame_top.pack(padx=10, pady=20, side=tk.TOP)
