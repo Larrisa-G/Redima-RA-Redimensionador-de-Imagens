@@ -7,6 +7,10 @@ def escalar_imagem (imagem, largura, altura, escala):
     nova_largura = (largura * escala)
     nova_altura = (altura * escala)
     nova_imagem = Image.new("RGB", (int(nova_largura), int(nova_altura))) 
+    imagem_redimensionada = imagem.resize((int(nova_largura), int(nova_altura)))
+
+    nova_imagem.paste(imagem_redimensionada, (0, 0))
+
     
     def escalar_quadrante(x, y, w, h) : #coordenadas, largura e altura do quadrante
         if w <= 1 or h <= 1 : 
@@ -23,7 +27,7 @@ def escalar_imagem (imagem, largura, altura, escala):
    
     escalar_quadrante(0, 0, largura, altura)
     nova_imagem.show()
-    '''nova_imagem.save(f'{gencode(name='Redima_RA', x=1)}.png')'''
+    nova_imagem.save(f'{gencode()}.png')
     return nova_imagem
 
 '''imagem = Image.open(".\leao_cinza.jpg")
