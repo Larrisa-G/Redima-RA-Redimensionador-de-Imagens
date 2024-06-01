@@ -4,7 +4,7 @@ def escalar_imagem (imagem, escala):
     largura, altura = imagem.size
     nova_largura = int(largura * escala)
     nova_altura = int(altura * escala)
-    nova_imagem = Image.new("RGB", (nova_largura, nova_altura)) 
+    nova_imagem = Image.new("RGBA", (nova_largura, nova_altura), (0, 0, 0, 0)) 
     
     def escalar_quadrante(x, y, w, h) : #coordenadas, largura e altura do quadrante
         if w <= 1 or h <= 1 : 
@@ -22,6 +22,6 @@ def escalar_imagem (imagem, escala):
     escalar_quadrante(0, 0, largura, altura)
     return nova_imagem
 
-imagem = Image.open(".\leao_cinza.jpg")
+'''imagem = Image.open(".\leao_cinza.jpg")
 nova_imagem = escalar_imagem(imagem, 1)
-nova_imagem.show()
+nova_imagem.show()'''
